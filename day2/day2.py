@@ -9,9 +9,9 @@ def part1(puzzle):
         exceed = False
         for game in games:
             cubes = game.split(",")
-            red = 0
-            green = 0
-            blue = 0
+            red = green = blue = 0
+            if exceed:
+                break
             for i in range(len(cubes)):
                 cubes[i] = cubes[i].strip().split(" ")
                 num = cubes[i][0]
@@ -24,6 +24,7 @@ def part1(puzzle):
                     blue += int(num)
                 if red > 12 or green > 13 or blue > 14:
                     exceed = True
+                    break
         if not exceed:
             res += game_num
 
